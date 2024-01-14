@@ -1,9 +1,9 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton
 
 # TODO comments
 # Also this should be an abstract class but can be used for now while testing.
 class BaseScreenWidget(QWidget):
-    def __init__(self, title, parent=None):
+    def __init__(self, title, parent: QWidget):
         super(BaseScreenWidget, self).__init__(parent)
         self.initUI(title)
 

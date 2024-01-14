@@ -1,6 +1,6 @@
 # Imports required to run PySide6 code (temporarily in this class)
 from PySide6 import QtCore
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QDockWidget
 from PySide6.QtWidgets import QWidget
 from ..Widgets.MainWindowSidebar import VTabWidget
 from ..Widgets.BaseScreen import BaseScreenWidget
@@ -16,22 +16,16 @@ class MainWindow(QMainWindow):
         central_widget = QWidget(self)
         self.setCentralWidget(central_widget)
         
+        # Create an instance of BaseScreenWidget and add it to the layout
+        base_screen_widget = BaseScreenWidget("titlehey", central_widget)
+        
         v_tab_widget = VTabWidget(central_widget)
-        v_tab_widget.addTab(QWidget(), 'tab1')
+        v_tab_widget.addTab(base_screen_widget, 'tab1')
         v_tab_widget.addTab(QWidget(), 'tab2')
         v_tab_widget.addTab(QWidget(), 'tab3')
-
-# TODO have not yet been able to hook this up.
-    #     # Create a ScreenWidget and add it to the layout
-    #     ScreenWidget = BaseScreenWidget(QWidget())
-    #     self.addScreenWidget(ScreenWidget)
-
-    #     # Set the VTabWidget as the central widget
-    #     self.setCentralWidget(v_tab_widget)
-
-    # def addScreenWidget(self, ScreenWidget):
-    #     # Assuming you want to add the ScreenWidget to the right of the main window
-    #     self.addDockWidget(QtCore.Qt.RightDockWidgetArea, ScreenWidget)
+        
+        layout = QVBoxLayout(central_widget)
+        layout.addWidget(v_tab_widget)
 
 
 
