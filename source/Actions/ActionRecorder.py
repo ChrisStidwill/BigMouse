@@ -1,5 +1,5 @@
 from pynput.mouse import Listener as MouseListener
-from BaseActions import MouseButton, MouseAction
+from Actions.BaseActions import MouseButton, MouseAction
 
 # Recorder of different actions. 
 # TODO this class won't scale well, need to revisit this when more actions can be recorded
