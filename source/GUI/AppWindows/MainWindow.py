@@ -1,10 +1,13 @@
 # Imports required to run PySide6 code (temporarily in this class)
+from PySide6 import QtCore
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtWidgets import QWidget
 from ..Widgets.MainWindowSidebar import VTabWidget
+from ..Widgets.BaseScreen import BaseScreenWidget
 
 # The MainWindow consists of a vertical tab widget on the left which calls to a widget switcher on the right. All further
 # functionality is handled by widgets in the widget switcher.
+# TODO fix casing here, also around code base.
 class MainWindow(QMainWindow):    
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -18,7 +21,17 @@ class MainWindow(QMainWindow):
         v_tab_widget.addTab(QWidget(), 'tab2')
         v_tab_widget.addTab(QWidget(), 'tab3')
 
+# TODO have not yet been able to hook this up.
+    #     # Create a ScreenWidget and add it to the layout
+    #     ScreenWidget = BaseScreenWidget(QWidget())
+    #     self.addScreenWidget(ScreenWidget)
 
+    #     # Set the VTabWidget as the central widget
+    #     self.setCentralWidget(v_tab_widget)
+
+    # def addScreenWidget(self, ScreenWidget):
+    #     # Assuming you want to add the ScreenWidget to the right of the main window
+    #     self.addDockWidget(QtCore.Qt.RightDockWidgetArea, ScreenWidget)
 
 
 

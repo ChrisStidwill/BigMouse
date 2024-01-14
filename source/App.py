@@ -1,6 +1,5 @@
-
 import sys
-from GUI.Screens.MainWindow import MainWindow
+from GUI.AppWindows.MainWindow import MainWindow
 from PySide6 import QtWidgets
 
 # Main app class that is run from main.
