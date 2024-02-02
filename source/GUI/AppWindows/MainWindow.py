@@ -3,7 +3,7 @@ from PySide6 import QtCore
 from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QDockWidget
 from PySide6.QtWidgets import QWidget
 from ..Widgets.MainWindowSidebar import VTabWidget
-from ..Widgets.BaseScreen import BaseScreenWidget
+from ..Widgets.RecordingScreen import RecordingScreenWidget
 
 # The MainWindow consists of a vertical tab widget on the left which calls to a widget switcher on the right. All further
 # functionality is handled by widgets in the widget switcher.
@@ -16,13 +16,47 @@ class MainWindow(QMainWindow):
         central_widget = QWidget(self)
         self.setCentralWidget(central_widget)
         
-        # Create an instance of BaseScreenWidget and add it to the layout
-        base_screen_widget = BaseScreenWidget("titlehey", central_widget)
+        # Create an instance of RecordingScreenWidget and add it to the layout
+        recordingScreenWidget = RecordingScreenWidget("Record Actions", central_widget)
         
         v_tab_widget = VTabWidget(central_widget)
-        v_tab_widget.addTab(base_screen_widget, 'tab1')
+        v_tab_widget.addTab(recordingScreenWidget, 'Record')
         v_tab_widget.addTab(QWidget(), 'tab2')
         v_tab_widget.addTab(QWidget(), 'tab3')
+        
+        # Example stylesheet to customize the appearance
+        # v_tab_widget.setStyleSheet("""
+        #     QTabWidget::pane {
+        #         border: 1px solid #D0D0D0;
+        #         border-top-left-radius: 4px;
+        #         border-top-right-radius: 4px;
+        #         background-color: #F5F5F5;
+        #     }
+        #     QTabWidget::tab-bar {
+        #         left: 10px; /* move to the right by 10px */
+        #     }
+        #     QTabBar::tab {
+        #         width: 40px; /* set the width of each tab */
+        #         height: 120px; /* set the height of each tab */
+        #         background-color: #F0F0F0;
+        #         border: 1px solid #D0D0D0;
+        #         border-bottom: none;
+        #         border-top-left-radius: 4px;
+        #         border-top-right-radius: 4px;
+        #         padding: 5px;
+        #         color: #444444;
+        #         font-family: "Poppins", sans-serif;
+        #     }
+        #     QTabBar::tab:hover {
+        #         background-color: #EEDC82; /* yellow undertone for hover and selected */
+        #     }
+        #     QTabBar::tab:selected{
+        #         background-color: #D5B85A; /* yellow undertone for hover and selected */
+        #     }
+        #     QTabBar::tab:!selected {
+        #         margin-top: 2px; /* move non-selected tabs down slightly */
+        #     }
+        # """)
         
         layout = QVBoxLayout(central_widget)
         layout.addWidget(v_tab_widget)

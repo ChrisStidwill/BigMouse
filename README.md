@@ -18,7 +18,7 @@ Initially was planning to create with C++ and Qt but swapped to Python due to Py
 ### 2. Basic Project Structure
 - [X] Creation of base action class and implement a simple recording/playback of actions.
 - [X] Creation of a central app widget which can be added to later.
-- [ ] Creation of sidebar widget, widget switcher, and base screen widget.
+- [ ] Creation of widgets necessary to swap between different tabs within the app.
 
 ### 3. Pages: Action Recording and Playback, Workflow Creator
 - [ ] Create a page capable of recording, storing, and playing back individual actions.

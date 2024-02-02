@@ -9,19 +9,19 @@ class BaseScreenWidget(QWidget):
 
     def initUI(self, title):
         # Create a QVBoxLayout for the ScreenWidget
-        layout = QVBoxLayout(self)
+        self.layout = QVBoxLayout(self)
 
         # Create a QLabel for the title
         title_label = QLabel(title, self)
         title_label.setStyleSheet("font-size: 18px; font-weight: bold;")
 
         # Add the title label to the layout
-        layout.addWidget(title_label)
+        self.layout.addWidget(title_label)
 
         # Add other widgets or content specific to the screen
         # For example, a QPushButton
-        button = QPushButton("Click me!", self)
-        layout.addWidget(button)
+        # button = QPushButton("Click me!", self)
+        # self.layout.addWidget(button)
 
         # Set the layout for the ScreenWidget
-        self.setLayout(layout)
+        self.setLayout(self.layout)
